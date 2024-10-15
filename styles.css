@@ -1,0 +1,116 @@
+/* Estilo general del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    background-color: #020111; /* Fondo oscuro base */
+    position: relative; /* Para usar en el fondo de estrellas */
+}
+
+/* Estrellas en el fondo */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/9CXUNcF.png') repeat; /* URL de la imagen de estrellas */
+    z-index: -1; /* Asegurarse de que esté detrás de los elementos */
+}
+
+/* Estilo de la cuarta */
+.outer-envelope {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la cuarta */
+    transition: transform 0.4s ease;
+}
+
+.outer-envelope.open {
+    transform: rotateY(180deg); /* Efecto de giro al abrir */
+}
+
+/* Estilo de la carta */
+.envelope {
+    position: relative;
+    width: 350px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    transition: transform 0.4s ease; /* Añadir transición para suavizar la apertura */
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
+    border-bottom: 40px solid #fff;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #d65db1;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.heart {
+    color: #ff6b6b;
+    font-size: 1.4rem;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #e63946;
+}
+
+.hidden-message {
+    display: none;
+    font-size: 1rem;
+    color: #d65db1;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}

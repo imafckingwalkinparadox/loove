@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>I love you</title>
+</head>
+<body>
+    <!-- Cuarta que se abrirá -->
+    <div class="outer-envelope" onclick="toggleCard()">
+        <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="card-content" id="cardContent">
+                <h1>Te amo muchisimo </h1>
+                <p>
+                    Quiero que sepas que enserio te extraño demasiado y, pase lo que pase, siempre quiero seguir contigo.
+                </p>
+                <br>
+                <button onclick="showMessage(event)">Haz clic para ver el mensaje oculto</button>
+                <p class="hidden-message" id="hiddenMessage">Solo quiero que seas tu drea, eres y siempre seras el amor de mi vida. <span class="heart">❤️</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard() {
+            const envelope = document.querySelector('.outer-envelope');
+            envelope.classList.toggle('open'); // Cambia el estado de la cuarta
+        }
+
+        function showMessage(event) {
+            event.stopPropagation(); // Evita que el clic en el botón cierre la cuarta
+            const message = document.getElementById("hiddenMessage");
+            message.style.display = "block"; // Muestra el mensaje oculto
+            message.style.animation = "fadeIn 1s"; // Añade la animación de aparición
+        }
+    </script>
+</body>
+</html>
